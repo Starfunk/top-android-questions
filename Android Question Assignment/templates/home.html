@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+
+<!-- Use the base layout defined in layout.html -->
+{% extends "layout.html" %}
+
+<!-- Create the content of the website -->
+{% block content %}
+	
+	<h1 style="font-size:400%;">ANDROIDPHILE</h1>
+	
+	<p style="font-size:150%; font-family:Courier New;">Keep up to date 
+		with the latest android related posts on StackOverflow</p>
+
+	<h2 style="font-size:250%; color: #FF7575"> Top-Voted Android Questions From The Past Week</h2>
+	
+	<!-- Loop through the properties of each post and display them as a button-->
+	{% for topquestion in topquestions %}
+		<button class="button" type="button" onclick= "window.location.href='{{topquestion.link}}'"
+		<div class="boxed">
+		<h3 align="left">  {{ topquestion.title }} </a> </h3>
+		<p align="left">By {{ topquestion.owner.display_name }} | View Count: 
+			{{ topquestion.view_count }} | 
+				{% if topquestion.is_answered == True %} 
+				Answered
+				{% else %}
+				Not Answered
+				{% endif %}
+		<div>
+		</button>
+		{% endfor %} </p>
+	
+	<!-- Creates a Google scatterplot of User vs. Reputation data -->
+	<div class="bottom" id="chart_div" style="width: 900px; height: 500px;"></div>
+	
+	<h2 style="font-size:250%; color: #FF7575"> Newest Android Questions From The Past Week</h2>
+	
+	<!-- Loop through the properties of each post and display them as a button-->
+	{% for newquestion in newquestions %}
+		<button class="button" type="button" onclick= "window.location.href='{{newquestion.link}}'"
+		<div class="boxed">
+		<h3 align="left">  {{newquestion.title}} </a> </h3>
+		<p align="left">By {{ newquestion.owner.display_name }} | View Count: 
+			{{ newquestion.view_count }} | 
+				{% if newquestion.is_answered == True %} 
+				Answered
+				{% else %}
+				Not Answered
+				{% endif %}
+		<div>
+		</button>
+		{% endfor %} </p>
+	
+	<!-- Creates a Google scatterplot of User vs. Reputation data -->
+	<div class="bottom" id="chart_div1" style="width: 900px; height: 500px;"></div>
+	
+  </div>
+{% endblock content %}
+
+	

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+
+<!-- This file defines the styles and functions used in home.html-->
+
+<html>
+
+<head>
+	
+	<style> 
+	p {
+		padding-bottom: 0.5cm;
+	}
+	.boxed {
+		border: 1px solid black;
+		padding: 10px;
+		margin: 20px;
+	}
+	.button {
+		background-color:#FFFFFF;
+		border: black;
+		color: black;
+		text-align: center;
+		text-decoration: none;
+		display: inline-block;
+		font-size: 16px;
+		margin: 4px 2px;
+		cursor: pointer;
+		hover:background: #89E8FF;
+	}
+	.button:hover {
+		background-color:rgba(169, 239, 255, 0.3);;
+	}	
+	.bottom {
+		margin-bottom: 3cm;
+	}
+	</style>
+	
+	<!-- Required meta tags to run Bootstrap template -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"crossorigin="anonymous">
+
+	<title> ANDROIDPHILE </title>
+	
+	<!-- Creating User vs. Reputation graph for top questions -->
+	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+	
+    <script type="text/javascript">	
+    google.charts.load('current', {'packages':['corechart']});
+    google.charts.setOnLoadCallback(drawChart);
+	var topnames = {{ topnames|tojson }};
+	var toprep = {{ toprep|tojson }};
+    function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Users', 'Reputation'],
+          [ topnames[0], toprep[0]],
+          [ topnames[1], toprep[1]],
+          [ topnames[2], toprep[2]],
+          [ topnames[3], toprep[3]],
+          [ topnames[4], toprep[4]],
+          [	topnames[5], toprep[5]],
+          [	topnames[6], toprep[6]],
+          [	topnames[7], toprep[7]],
+          [	topnames[8], toprep[8]],
+          [	topnames[9], toprep[9]]
+        ]);
+        var options = {
+			title: 'Top Android Questions: User vs. Reputation',
+			hAxis: {title: 'Users'},
+			vAxis: {title: 'Reputation'},
+		}; 
+        var chart = new google.visualization.ScatterChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+	
+	<!-- Creating User vs. Reputation graph for new questions -->
+	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+	
+    <script type="text/javascript">
+    google.charts.load('current', {'packages':['corechart']});
+    google.charts.setOnLoadCallback(drawChart);
+	var newnames = {{ newnames|tojson }};
+	var newrep = {{ newrep|tojson }};
+    function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Users', 'Reputation'],
+          [ newnames[0], newrep[0]],
+          [ newnames[1], newrep[1]],
+          [ newnames[2], newrep[2]],
+          [ newnames[3], newrep[3]],
+          [ newnames[4], newrep[4]],
+          [	newnames[5], newrep[5]],
+          [	newnames[6], newrep[6]],
+          [	newnames[7], newrep[7]],
+          [	newnames[8], newrep[8]],
+          [	newnames[9], newrep[9]]
+        ]);
+        var options = {
+			title: 'New Android Questions: User vs. Reputation',
+			hAxis: {title: 'Users'},
+			vAxis: {title: 'Reputation'},
+		}; 
+        var chart = new google.visualization.ScatterChart(document.getElementById('chart_div1'));
+        chart.draw(data, options);
+      }
+    </script>
+    
+</head>
+
+	<div class="container">
+		{% block content %}{% endblock %} 
+	</div>
+	
+</body>
+
+</html>
+
