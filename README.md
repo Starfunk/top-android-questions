@@ -10,5 +10,5 @@ Flask
 Schedule
 Calendar
 
-On Mac,simply running '''pip install [name of dependency]''' should do the trick. 
+On Mac,simply running ```pip install [name of dependency]``` should do the trick. 
 
