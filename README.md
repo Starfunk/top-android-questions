@@ -24,11 +24,11 @@ On Mac, simply running ```pip install [name of dependency]``` should do the tric
 
 ## Project description
 
-The website, "ANDROIDPHILE", gets its data as a JSON from StackOverflow using StackAPI. The first API returns a JSON of the top android posts from the last week. The second API returns a JSON of the most recent android posts.
+The website, "ANDROIDPHILE", gets its data as a JSON from StackOverflow using StackAPI. The first API call returns a JSON of the top android posts from the last week. The second API call returns a JSON of the most recent android posts.
 
-I found the most convenient way of displaying the question thread was simply to have the post titles link to the actual threads on StackOverflow, not only was this more convenient for me but the jsons did not actually contain question thread information so there as no way for me to recreate a question thread on ANDROIDPHILE. 
+I found the most convenient way of displaying the question thread was simply to have the post titles link to the actual threads on StackOverflow, not only was this more convenient for me but the JSONs returned by the API did not actually contain question thread information so there was no way for me to recreate a question thread on ANDROIDPHILE. 
 
-Since this website is about keeping up to the date with the most-recent and top-rated posts, I added a custom feature which takes the json data and plots the reputation of each of the posters. This way, someone on ANDROIDPHILE can make a choice as to which question they want to look at based on the "quality" of the poster and not just the post itself.  
+Since this website is about keeping up to the date with the most-recent and top-rated posts, I added a custom feature which takes the JSON data and plots the reputation of each of the posters. This way, someone on ANDROIDPHILE can make a choice as to which question they want to look at based on the quality of the poster in addition to the quality of the post itself.  
 
 The website is scheduled to auto-update every 10 seconds. 
 
@@ -36,5 +36,5 @@ The website is scheduled to auto-update every 10 seconds.
 
 ```top_android_questions.py``` is a library that implements the StackOverflow class (more details in the file).
 ```flask_website.py``` instantiates the website by creating a Flask instance.
-```home.html``` is where the content of the website is laid-out.
+```home.html``` is where the content of the website is contained.
 ```layout.html``` is where the styles and functions used in ```home.html``` are defined.
