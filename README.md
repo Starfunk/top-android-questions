@@ -31,3 +31,10 @@ I found the most convenient way of displaying the question thread was simply to 
 Since this website is about keeping up to the date with the most-recent and top-rated posts, I added a custom feature which takes the json data and plots the reputation of each of the posters. This way, someone on ANDROIDPHILE can make a choice as to which question they want to look at based on the "quality" of the poster and not just the post itself.  
 
 The website is scheduled to auto-update every 10 seconds. 
+
+## Project files
+
+```top_android_questions.py``` is a library that implements the StackOverflow class (more details in the file).
+```flask_website.py``` instantiates the website by creating a Flask instance.
+```home.html``` is where the content of the website is laid-out.
+```layout.html``` is where the styles and functions used in ```home.html``` are defined.
