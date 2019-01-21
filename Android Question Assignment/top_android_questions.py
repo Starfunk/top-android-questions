@@ -69,7 +69,7 @@ def get_last_week(day, month, year, weekday, flag):
 			# Sunday
 			day = day + days_in_month - weekday - counter
 	else: 
-		day = day - weekday	- counter
+		day = day - weekday - counter
 		
 	return(day, month, year)
 	
